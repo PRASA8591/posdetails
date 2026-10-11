@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrasaTek System Solutions - Offline POS & Inventory Management System</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom Theme Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#04090e',
+                        brandNav: '#070f17',
+                        brandCard: '#091522',
+                        brandCyan: '#00d2ff',
+                        brandGreen: '#00e676',
+                        brandGreenHover: '#00c853',
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 210, 255, 0.3)',
+                        'neon-green': '0 0 20px rgba(0, 230, 118, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Corner Borders matching PrasaTek Tech Container Grid */
+        .tech-box {
+            position: relative;
+            background: rgba(9, 21, 34, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 210, 255, 0.15);
+        }
+        .tech-box::before, .tech-box::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            pointer-events: none;
+        }
+        .tech-box::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid #00d2ff;
+            border-left: 2px solid #00d2ff;
+        }
+        .tech-box::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid #00e676;
+            border-right: 2px solid #00e676;
+        }
+
+        /* Grid Background Pattern */
+        .bg-tech-grid {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 210, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 210, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Neon Text Glows */
+        .glow-cyan {
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+        .glow-green {
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-slate-200 font-sans antialiased bg-tech-grid min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-brandNav/90 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            
+            <!-- Brand Logo & Name -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="logo.png" alt="PrasaTek Logo" class="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,210,255,0.4)]">
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white block leading-none">PrasaTek</span>
+                    <span class="text-[10px] font-semibold tracking-widest text-slate-400 uppercase">System Solutions</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#overview" class="hover:text-brandCyan transition-colors">Overview</a>
+                <a href="#features" class="hover:text-brandCyan transition-colors">Features & Modules</a>
+                <a href="#guide" class="hover:text-brandCyan transition-colors">System Guide</a>
+                <a href="#contact" class="hover:text-brandCyan transition-colors">Contact Us</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-4">
+                <a href="tel:0719323239" class="hidden sm:flex items-center space-x-2 text-sm font-semibold text-brandCyan hover:underline">
+                    <i class="fa-solid fa-phone text-xs"></i>
+                    <span>0719 323 239</span>
+                </a>
+                <a href="#guide" class="bg-brandGreen hover:bg-brandGreenHover text-brandDark font-bold px-5 py-2.5 rounded-lg transition-all transform hover:scale-105 shadow-neon-green text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>User Manual</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="overview" class="relative py-16 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content Column -->
+        <div class="lg:col-span-7 space-y-6 text-left">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 bg-brandNav border border-brandCyan/30 rounded-full px-4 py-1.5 text-xs font-semibold text-brandCyan shadow-neon-cyan">
+                <span class="w-2 h-2 rounded-full bg-brandCyan animate-pulse"></span>
+                <span class="tracking-widest uppercase">YOUR TRUSTED TECH PARTNER</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-none tracking-tight">
+                Reliable Solutions.<br>
+                <span class="text-brandCyan glow-cyan">Better Technology.</span><br>
+                <span class="text-brandGreen glow-green">Brighter Future.</span>
+            </h1>
+
+            <!-- Subtitle Description -->
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                PrasaTek Advanced Offline POS & Inventory Control System — High performance hardware-locked standalone desktop solution with PO, GRN, Supervisor negative stock bypass, and dynamic pack conversions.
+            </p>
+            <p class="text-slate-400 text-sm font-medium">
+                ව්‍යාපාරික කටයුතු නිවැරදිව හා කාර්යක්ෂමව පාලනය කරන ප්‍රබල Offline POS සහ Inventory පද්ධතිය.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="#contact" class="bg-brandGreen hover:bg-brandGreenHover text-brandDark font-extrabold px-7 py-3.5 rounded-lg transition shadow-neon-green text-base">
+                    Contact Us Now
+                </a>
+                <a href="#features" class="bg-brandNav hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-7 py-3.5 rounded-lg transition text-base">
+                    Explore Modules
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Visual Column (Logo Display Card) -->
+        <div class="lg:col-span-5 flex justify-center">
+            <div class="tech-box p-8 rounded-2xl w-full max-w-md flex flex-col items-center justify-center relative group">
+                <div class="relative w-48 h-48 sm:w-64 sm:h-64 flex items-center justify-center my-4">
+                    <!-- Glow behind logo -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brandCyan/20 to-brandGreen/20 rounded-full filter blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+                    <img src="logo.png" alt="PrasaTek System Badge" class="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(0,230,118,0.3)]">
+                </div>
+                <div class="mt-4 bg-brandNav/80 border border-brandGreen/40 rounded-lg px-4 py-2 flex items-center space-x-2 text-brandGreen font-bold text-xs tracking-wider uppercase shadow-neon-green">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>100% QUALITY GUARANTEED</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Modules & Features Grid -->
+    <section id="features" class="py-16 bg-brandNav/50 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+                <span class="text-brandCyan font-semibold text-xs uppercase tracking-widest">Enterprise Architecture</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">System Modules & Capabilities</h2>
+                <p class="text-slate-400 text-sm">පද්ධතියේ ප්‍රධාන විශේෂාංග සහ ක්‍රියාකාරී මොඩියුලයන්</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Feature 1: Licensing -->
+                <div class="tech-box p-6 rounded-xl hover:border-brandCyan/50 transition duration-300">
+                    <div class="w-12 h-12 bg-brandCyan/10 border border-brandCyan/30 rounded-lg flex items-center justify-center text-brandCyan text-xl mb-4 shadow-neon-cyan">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">HWID Hardware Licensing</h3>
+                    <p class="text-xs text-brandCyan font-semibold mb-3">හාඩ්වෙයාර් පාදක ලයිසන් පද්ධතිය</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Hardware-locked security bound to Motherboard & CPU IDs. Accompanied by a Standalone Key Generator for Day/Month/Lifetime activations.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800">
+                        එක් පරිගණකයකට පමණක් සීමා වූ ස්ථාවර සහ ආරක්ෂිත Activation පද්ධතිය.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Negative Stock -->
+                <div class="tech-box p-6 rounded-xl hover:border-brandGreen/50 transition duration-300">
+                    <div class="w-12 h-12 bg-brandGreen/10 border border-brandGreen/30 rounded-lg flex items-center justify-center text-brandGreen text-xl mb-4 shadow-neon-green">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Supervisor Authorization</h3>
+                    <p class="text-xs text-brandGreen font-semibold mb-3">සුපර්වයිසර් අනුමැතිය සහිත බිල් කිරීම</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Zero-stock item billing prompts a credential modal requiring a Supervisor login with complete event audit logging.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800">
+                        තොග නොමැති විට Supervisor මුරපද මඟින් පමණක් බිල් කිරීමේ පහසුකම.
+                    </p>
+                </div>
+
+                <!-- Feature 3: PO Management -->
+                <div class="tech-box p-6 rounded-xl hover:border-brandCyan/50 transition duration-300">
+                    <div class="w-12 h-12 bg-brandCyan/10 border border-brandCyan/30 rounded-lg flex items-center justify-center text-brandCyan text-xl mb-4 shadow-neon-cyan">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">PO Approval Workflow</h3>
+                    <p class="text-xs text-brandCyan font-semibold mb-3">ඇණවුම් කළමනාකරණය (PO Module)</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Multi-stage PO processing with Draft, Processed, and Approved workflows. Access restricted via `po_approve_access` permission flags.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800">
+                        අනුමැතිය ලබාගත් පසු පමණක් GRN වෙත ඇතුළත් කළ හැකි PO පද්ධතිය.
+                    </p>
+                </div>
+
+                <!-- Feature 4: GRN & Unit Conversion -->
+                <div class="tech-box p-6 rounded-xl hover:border-brandGreen/50 transition duration-300">
+                    <div class="w-12 h-12 bg-brandGreen/10 border border-brandGreen/30 rounded-lg flex items-center justify-center text-brandGreen text-xl mb-4 shadow-neon-green">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">GRN & Auto Unit Conversion</h3>
+                    <p class="text-sm text-brandGreen font-semibold mb-3 text-xs">භාණ්ඩ ලබාගැනීම සහ ස්ටොක් කිරීම</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Auto-import PO details into GRN. Dynamic calculations automatically convert whole package quantities into sellable individual Base Units.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800">
+                        පැකේජ Unit බවට auto-convert කර ප්‍රධාන ස්ටොක් එකට ඇතුළත් කිරීම.
+                    </p>
+                </div>
+
+                <!-- Feature 5: Expiry & Discount Control -->
+                <div class="tech-box p-6 rounded-xl hover:border-brandCyan/50 transition duration-300">
+                    <div class="w-12 h-12 bg-brandCyan/10 border border-brandCyan/30 rounded-lg flex items-center justify-center text-brandCyan text-xl mb-4 shadow-neon-cyan">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Dynamic Expiry Control</h3>
+                    <p class="text-xs text-brandCyan font-semibold mb-3">කල්ඉකුත්වීමේ දින කළමනාකරණය</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Toggle Expiry tracking on or off in System Settings to dynamically adjust GRN layout columns for food/pharmaceutical or general hardware stores.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800">
+                        ව්‍යාපාරයේ ස්වභාවය අනුව Expiry Column එක පෙන්වීම හෝ සැඟවීම.
+                    </p>
+                </div>
+
+                <!-- Feature 6: Backup & Maintenance -->
+                <div class="tech-box p-6 rounded-xl hover:border-brandGreen/50 transition duration-300">
+                    <div class="w-12 h-12 bg-brandGreen/10 border border-brandGreen/30 rounded-lg flex items-center justify-center text-brandGreen text-xl mb-4 shadow-neon-green">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Database Backup & Restore</h3>
+                    <p class="text-xs text-brandGreen font-semibold mb-3">ඩේටාබේස් බැකප් සහ රීස්ටෝර්</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        One-click SQLite database backups with automatic timestamping and safe restoration options built into Admin Controls.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800">
+                        වඩාත් පහසුවෙන් ඩේටාබේස් බැකප් ලබාගැනීම සහ රීස්ටෝර් කිරීම.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step System Operating Manual -->
+    <section id="guide" class="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+            <span class="text-brandGreen font-semibold text-xs uppercase tracking-widest">User Operating Manual</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How to Operate the System (Step-by-Step)</h2>
+            <p class="text-slate-400 text-sm">පද්ධතිය පියවරෙන් පියවර භාවිතා කරන ආකාරය පිළිබඳ සම්පූර්ණ උපදෙස් මාලාව</p>
+        </div>
+
+        <div class="space-y-6 max-w-4xl mx-auto">
+
+            <!-- Step 1: Login -->
+            <div class="tech-box p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-brandCyan/20 text-brandCyan border border-brandCyan/40 font-black text-xl w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-neon-cyan">
+                    01
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-xl font-bold text-white">System Login (පද්ධතියට ප්‍රවේශ වීම)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Launch the desktop application. Enter your assigned <strong>Username</strong> and <strong>Password</strong> in the compact login prompt. Upon validation, the software automatically maximizes to full-screen desktop layout.
+                    </p>
+                    <div class="bg-brandDark/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-400">
+                        💡 <strong class="text-slate-200">සිංහල උපදෙස්:</strong> Software එක Open කර ඔබගේ Username සහ Password ලබාදී Login වන්න. Login වූ සැනින් App එක auto-maximize වී Dashboard එක පෙන්වයි.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Billing & Negative Stock -->
+            <div class="tech-box p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-brandGreen/20 text-brandGreen border border-brandGreen/40 font-black text-xl w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-neon-green">
+                    02
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-xl font-bold text-white">POS Billing & Negative Stock Authorization (බිල් කිරීම)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Scan item barcodes or search by name. If an item has <strong>0 stock</strong>, an Authorization Modal will pop up requesting a Supervisor’s credentials. Once approved, the transaction completes and logs the authorization event.
+                    </p>
+                    <div class="bg-brandDark/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-400">
+                        💡 <strong class="text-slate-200">සිංහල උපදෙස්:</strong> භාණ්ඩ Scan කර Cart එකට එකතු කරන්න. Stock එක 0 නම් Supervisor Password ඉල්ලන Popup එකක් එයි. Supervisor මුරපදය ඇතුළත් කර බිල් කිරීම සිදු කළ හැක.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Purchase Order -->
+            <div class="tech-box p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-brandCyan/20 text-brandCyan border border-brandCyan/40 font-black text-xl w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-neon-cyan">
+                    03
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-xl font-bold text-white">Creating & Approving PO (ඇණවුම් සෑදීම සහ අනුමැතිය)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Open PO Module -> Click <strong>"Create New PO"</strong>. Select Supplier, add items, set Package Cost and Quantities. Click <strong>"Save PO"</strong> (Draft), then <strong>"Process PO"</strong>. An authorized user with `po_approve_access` must click <strong>"Approve PO"</strong> before it can be converted to GRN.
+                    </p>
+                    <div class="bg-brandDark/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-400">
+                        💡 <strong class="text-slate-200">සිංහල උපදෙස්:</strong> PO Module එකෙන් "Create New PO" තෝරන්න. Supplier සහ භාණ්ඩ ඇතුළත් කර Save කර Process කරන්න. Manager/Supervisor විසින් Approve කළ පසු GRN සෑදීමට සුදුසු වේ.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: GRN Processing -->
+            <div class="tech-box p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-brandGreen/20 text-brandGreen border border-brandGreen/40 font-black text-xl w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-neon-green">
+                    04
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-xl font-bold text-white">GRN Processing & Auto Stock Conversion (භාණ්ඩ බාරගැනීම)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Open GRN Module -> Click <strong>"Create New GRN"</strong> -> Enter Approved PO Number and click <strong>"Load PO"</strong>. Verify items, costs, selling prices, and Expiry Dates. Click <strong>"Process GRN"</strong> to automatically convert Package Qty to Base Units and add to inventory.
+                    </p>
+                    <div class="bg-brandDark/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-400">
+                        💡 <strong class="text-slate-200">සිංහල උපදෙස්:</strong> GRN Module එකේ "Create New GRN" ඔබා Approved PO No එක දී Load කරන්න. සියලු විස්තර පරීක්ෂා කර "Process GRN" ලබාදෙන්න. Packets ස්වයංක්‍රීයව Base Units බවට හැරී Stock එකට එකතු වේ.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Admin Control -->
+            <div class="tech-box p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-brandCyan/20 text-brandCyan border border-brandCyan/40 font-black text-xl w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-neon-cyan">
+                    05
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-xl font-bold text-white">Database Backup & Admin Control (ඇඩ්මින් පාලනය)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Under Admin Control, administrators can view Hardware License Key status, enter new extension keys, or create timestamped database backups (`.db` files) to secure system data against computer failures.
+                    </p>
+                    <div class="bg-brandDark/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-400">
+                        💡 <strong class="text-slate-200">සිංහල උපදෙස්:</strong> Admin Control එක හරහා License කල්පිරීම් පාලනය කිරීම සහ ඩේටාබේස් එක පරිගණකයට Backup (Download) කර සුරක්ෂිතව තබා ගැනීම සිදුකළ හැක.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-brandNav border-t border-slate-800 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="logo.png" alt="PrasaTek Logo" class="h-12 w-auto object-contain">
+                        <div>
+                            <span class="text-2xl font-black text-white">PrasaTek</span>
+                            <span class="text-xs font-semibold tracking-widest text-slate-400 uppercase block">System Solutions</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+                        We provide expert tech support, software development, system installations, data recovery, and custom desktop application solutions.
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        විශ්වාසනීය තාක්ෂණික විසඳුම් සහ මෘදුකාංග සංවර්ධනය.
+                    </p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="md:col-span-6 space-y-4 md:text-right">
+                    <h4 class="text-white font-bold text-lg">Contact Us Now</h4>
+                    <div class="space-y-2 text-sm text-slate-300">
+                        <p class="flex items-center md:justify-end space-x-2">
+                            <i class="fa-solid fa-phone text-brandGreen"></i>
+                            <a href="tel:0719323239" class="hover:text-brandGreen font-bold text-base">0719 323 239</a>
+                        </p>
+                        <p class="flex items-center md:justify-end space-x-2">
+                            <i class="fa-solid fa-envelope text-brandCyan"></i>
+                            <span>info@prasatek.com</span>
+                        </p>
+                        <p class="flex items-center md:justify-end space-x-2">
+                            <i class="fa-solid fa-location-dot text-brandCyan"></i>
+                            <span>Sri Lanka</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-2 sm:space-y-0">
+                <p>© 2026 <span class="text-slate-300 font-semibold">PrasaTek System Solutions</span>. All Rights Reserved.</p>
+                <p class="text-slate-600">High Reliability POS & Inventory Desktop Application</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
+```
+
+### Highlights of this design:
+1. **Brand Colors & Theme Matching:** Uses `logo.png` logo, `#04090e` deep dark tech background, `#00d2ff` neon cyan text glows, and `#00e676` neon green buttons matching your image mockup.
+2. **Tech Box Container Styling:** Features custom corner accents (`.tech-box::before`, `.tech-box::after`) matching the exact UI grid frame in your screenshot.
+3. **Step-by-step System Operating Guide:** Clear 5-step numbered guide explaining Login, POS Billing & Negative Stock Override, PO Approval, GRN Conversion, and Admin Backup controls in both English and Sinhala.
